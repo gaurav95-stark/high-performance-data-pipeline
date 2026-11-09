@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: realtime-pipeline
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: realtime-pipeline
+  template:
+    metadata:
+      labels:
+        app: realtime-pipeline
+    spec:
+      containers:
+      - name: api
+        image: realtime-pipeline:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        env:
+        - name: WORKER_COUNT
+          value: "4"
+        - name: DATABASE_PATH
+          value: /app/data/pipeline.db
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: "1"
+            memory: 512Mi
+        readinessProbe:
+          httpGet: {path: /health, port: 8000}
+        livenessProbe:
+          httpGet: {path: /health, port: 8000}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: realtime-pipeline
+spec:
+  selector:
+    app: realtime-pipeline
+  ports:
+  - port: 80
+    targetPort: 8000
+  type: ClusterIP

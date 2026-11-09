@@ -1,0 +1,14 @@
+services:
+  pipeline:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports: ["8000:8000"]
+    environment:
+      WORKER_COUNT: "4"
+      DATABASE_PATH: /app/data/pipeline.db
+    volumes:
+      - pipeline-data:/app/data
+    restart: unless-stopped
+volumes:
+  pipeline-data:

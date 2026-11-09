@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker></defs>
+<rect width="1100" height="620" rx="18" fill="#f8fafc"/>
+<g font-family="Arial,sans-serif" text-anchor="middle" fill="#0f172a">
+<text x="550" y="42" font-size="26" font-weight="bold">Real-Time Data Processing Pipeline</text>
+<g fill="#dbeafe" stroke="#2563eb" stroke-width="2">
+<rect x="390" y="75" width="320" height="65" rx="12"/><rect x="390" y="180" width="320" height="65" rx="12"/>
+</g>
+<g font-size="18" font-weight="bold"><text x="550" y="115">Client / JSON Events</text><text x="550" y="220">FastAPI Ingestion + Validation</text></g>
+<rect x="390" y="285" width="320" height="65" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><text x="550" y="325" font-size="18" font-weight="bold">Bounded Async Queue</text>
+<g fill="#dcfce7" stroke="#16a34a" stroke-width="2">
+<rect x="85" y="410" width="230" height="75" rx="12"/><rect x="435" y="410" width="230" height="75" rx="12"/><rect x="785" y="410" width="230" height="75" rx="12"/>
+</g>
+<g font-size="17" font-weight="bold"><text x="200" y="442">Worker 1</text><text x="200" y="465" font-size="13" font-weight="normal">Processing Strategy</text><text x="550" y="442">Worker 2</text><text x="550" y="465" font-size="13" font-weight="normal">Processing Strategy</text><text x="900" y="442">Worker N</text><text x="900" y="465" font-size="13" font-weight="normal">Processing Strategy</text></g>
+<g fill="#ede9fe" stroke="#7c3aed" stroke-width="2"><rect x="210" y="525" width="290" height="65" rx="12"/><rect x="600" y="525" width="290" height="65" rx="12"/></g>
+<g font-size="17" font-weight="bold"><text x="355" y="564">SQLite / PostgreSQL</text><text x="745" y="564">TTL Cache + Metrics</text></g>
+<g stroke="#64748b" stroke-width="3" fill="none" marker-end="url(#arrow)"><path d="M550 140 V175"/><path d="M550 245 V280"/><path d="M550 350 V380 H200 V405"/><path d="M550 380 V405"/><path d="M550 380 H900 V405"/><path d="M200 485 V505 H355 V520"/><path d="M550 485 V505 H745 V520"/><path d="M900 485 V505 H745"/></g>
+</g></svg>
